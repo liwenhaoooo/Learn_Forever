@@ -1,13 +1,13 @@
-package com.learn_forever.learn_forever;
+package com.online_course;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LearnForeverApplication {
+public class EurekaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LearnForeverApplication.class, args);
+		SpringApplication.run(EurekaApplication.class, args);
 	}
 
 }
