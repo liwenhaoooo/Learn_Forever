@@ -1,7 +1,7 @@
-package com.online_course.server.mapper;
+package com.course.server.mapper;
 
-import com.online_course.server.domain.Test;
-import com.online_course.server.domain.TestExample;
+import com.course.server.domain.Test;
+import com.course.server.domain.TestExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
