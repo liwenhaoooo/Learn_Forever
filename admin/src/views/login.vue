@@ -46,7 +46,8 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <button class="btn btn-primary w-100" type="submit">Login</button>
+                    <button class="btn btn-primary w-100" type="submit"
+                            v-on:click="login">Login</button>
                   </div>
                 </form>
 
@@ -70,7 +71,12 @@
 </template>
 <script>
 export default {
-  name: 'App',
+  name: 'login',
+  methods:{
+    login(){
+      this.$router.push("/admin")
+    }
+  }
 }
 </script>
 
