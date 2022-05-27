@@ -59,9 +59,7 @@
               <!-- Licensing information: https://bootstrapmade.com/license/ -->
               <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
               Designed by <a>&copy; Learn_Forever</a>
-
             </div>
-
           </div>
         </div>
       </div>
