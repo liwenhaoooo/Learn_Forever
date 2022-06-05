@@ -1,534 +1,459 @@
 <template>
 <div>
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="pre-loader">
+    <div class="pre-loader-box">
+      <div class="loader-logo"><img src="template/vendors/images/deskapp-logo.svg" alt=""></div>
+      <div class='loader-progress' id="progress_div">
+        <div class='bar' id='bar1'></div>
+      </div>
+      <div class='percent' id='percent1'>0%</div>
+      <div class="loading-text">
+        Loading...
+      </div>
+    </div>
+  </div>
 
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="/template/assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
-      </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
-
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
-
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
+  <div class="header">
+    <div class="header-left">
+      <div class="menu-icon dw dw-menu"></div>
+      <div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
+      <div class="header-search">
+        <form>
+          <div class="form-group mb-0">
+            <i class="dw dw-search2 search-icon"></i>
+            <input type="text" class="form-control search-input" placeholder="Search Here">
+            <div class="dropdown">
+              <a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
+                <i class="ion-arrow-down-c"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <div class="form-group row">
+                  <label class="col-sm-12 col-md-2 col-form-label">From</label>
+                  <div class="col-sm-12 col-md-10">
+                    <input class="form-control form-control-sm form-control-line" type="text">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-12 col-md-2 col-form-label">To</label>
+                  <div class="col-sm-12 col-md-10">
+                    <input class="form-control form-control-sm form-control-line" type="text">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-12 col-md-2 col-form-label">Subject</label>
+                  <div class="col-sm-12 col-md-10">
+                    <input class="form-control form-control-sm form-control-line" type="text">
+                  </div>
+                </div>
+                <div class="text-right">
+                  <button class="btn btn-primary">Search</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="dashboard-setting user-notification">
+        <div class="dropdown">
+          <a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
+            <i class="dw dw-settings2"></i>
           </a>
-        </li><!-- End Search Icon-->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number">4</span>
-          </a><!-- End Notification Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
-
-          </ul><!-- End Notification Dropdown Items -->
-
-        </li><!-- End Notification Nav -->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-            <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="/template/assets/img/messages-1.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="/template/assets/img/messages-2.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="/template/assets/img/messages-3.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
-            </li>
-
-          </ul><!-- End Messages Dropdown Items -->
-
-        </li><!-- End Messages Nav -->
-
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="/template/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-          </a><!-- End Profile Iamge Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
-
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
-      </ul>
-    </nav><!-- End Icons Navigation -->
-
-  </header><!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Alerts</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Accordion</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-cards.html">
-              <i class="bi bi-circle"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-carousel.html">
-              <i class="bi bi-circle"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-list-group.html">
-              <i class="bi bi-circle"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-modal.html">
-              <i class="bi bi-circle"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tabs.html">
-              <i class="bi bi-circle"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-pagination.html">
-              <i class="bi bi-circle"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-progress.html">
-              <i class="bi bi-circle"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-spinners.html">
-              <i class="bi bi-circle"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-editors.html">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validation.html">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li>
-          <li>
-            <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="charts-chartjs.html">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>ECharts</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-remix.html">
-              <i class="bi bi-circle"></i><span>Remix Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-boxicons.html">
-              <i class="bi bi-circle"></i><span>Boxicons</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Icons Nav -->
-
-      <li class="nav-heading">Pages</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link " href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
-
-    </ul>
-
-  </aside><!-- End Sidebar-->
-
-  <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Blank Page</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Blank</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class="section">
-      <div class="row">
-        <div class="col-lg-6">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Example Card</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-lg-6">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Example Card</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
-            </div>
-          </div>
-
         </div>
       </div>
-    </section>
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      <div class="user-notification">
+        <div class="dropdown">
+          <a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
+            <i class="icon-copy dw dw-notification"></i>
+            <span class="badge notification-active"></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <div class="notification-list mx-h-350 customscroll">
+              <ul>
+                <li>
+                  <a href="#">
+                    <img src="template/vendors/images/img.jpg" alt="">
+                    <h3>John Doe</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="template/vendors/images/photo1.jpg" alt="">
+                    <h3>Lea R. Frith</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="template/vendors/images/photo2.jpg" alt="">
+                    <h3>Erik L. Richards</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="template/vendors/images/photo3.jpg" alt="">
+                    <h3>John Doe</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="template/vendors/images/photo4.jpg" alt="">
+                    <h3>Renee I. Hansen</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="template/vendors/images/img.jpg" alt="">
+                    <h3>Vicki M. Coleman</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="user-info-dropdown">
+        <div class="dropdown">
+          <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+						<span class="user-icon">
+							<img src="template/vendors/images/photo1.jpg" alt="">
+						</span>
+            <span class="user-name">Ross C. Lopez</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+            <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
+            <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
+            <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
+            <a class="dropdown-item" href="login.html"><i class="dw dw-logout"></i> Log Out</a>
+          </div>
+        </div>
+      </div>
+      <div class="github-link">
+        <a href="https://github.com/dropways/deskapp" target="_blank"><img src="template/vendors/images/github.svg" alt=""></a>
+      </div>
     </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+  </div>
+
+  <div class="right-sidebar">
+    <div class="sidebar-title">
+      <h3 class="weight-600 font-16 text-blue">
+        Layout Settings
+        <span class="btn-block font-weight-400 font-12">User Interface Settings</span>
+      </h3>
+      <div class="close-sidebar" data-toggle="right-sidebar-close">
+        <i class="icon-copy ion-close-round"></i>
+      </div>
     </div>
-  </footer><!-- End Footer -->
+    <div class="right-sidebar-body customscroll">
+      <div class="right-sidebar-body-content">
+        <h4 class="weight-600 font-18 pb-10">Header Background</h4>
+        <div class="sidebar-btn-group pb-30 mb-10">
+          <a href="javascript:void(0);" class="btn btn-outline-primary header-white active">White</a>
+          <a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Dark</a>
+        </div>
+
+        <h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
+        <div class="sidebar-btn-group pb-30 mb-10">
+          <a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">White</a>
+          <a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Dark</a>
+        </div>
+
+        <h4 class="weight-600 font-18 pb-10">Menu Dropdown Icon</h4>
+        <div class="sidebar-radio-group pb-10 mb-10">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="sidebaricon-1" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-1" checked="">
+            <label class="custom-control-label" for="sidebaricon-1"><i class="fa fa-angle-down"></i></label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="sidebaricon-2" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-2">
+            <label class="custom-control-label" for="sidebaricon-2"><i class="ion-plus-round"></i></label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="sidebaricon-3" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-3">
+            <label class="custom-control-label" for="sidebaricon-3"><i class="fa fa-angle-double-right"></i></label>
+          </div>
+        </div>
+
+        <h4 class="weight-600 font-18 pb-10">Menu List Icon</h4>
+        <div class="sidebar-radio-group pb-30 mb-10">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="sidebariconlist-1" name="menu-list-icon" class="custom-control-input" value="icon-list-style-1" checked="">
+            <label class="custom-control-label" for="sidebariconlist-1"><i class="ion-minus-round"></i></label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="sidebariconlist-2" name="menu-list-icon" class="custom-control-input" value="icon-list-style-2">
+            <label class="custom-control-label" for="sidebariconlist-2"><i class="fa fa-circle-o" aria-hidden="true"></i></label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="sidebariconlist-3" name="menu-list-icon" class="custom-control-input" value="icon-list-style-3">
+            <label class="custom-control-label" for="sidebariconlist-3"><i class="dw dw-check"></i></label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="sidebariconlist-4" name="menu-list-icon" class="custom-control-input" value="icon-list-style-4" checked="">
+            <label class="custom-control-label" for="sidebariconlist-4"><i class="icon-copy dw dw-next-2"></i></label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="sidebariconlist-5" name="menu-list-icon" class="custom-control-input" value="icon-list-style-5">
+            <label class="custom-control-label" for="sidebariconlist-5"><i class="dw dw-fast-forward-1"></i></label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="sidebariconlist-6" name="menu-list-icon" class="custom-control-input" value="icon-list-style-6">
+            <label class="custom-control-label" for="sidebariconlist-6"><i class="dw dw-next"></i></label>
+          </div>
+        </div>
+
+        <div class="reset-options pt-30 text-center">
+          <button class="btn btn-danger" id="reset-settings">Reset Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="left-side-bar">
+    <div class="brand-logo">
+      <a href="index.html">
+        <img src="template/vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
+        <img src="template/vendors/images/deskapp-logo-white.svg" alt="" class="light-logo">
+      </a>
+      <div class="close-sidebar" data-toggle="left-sidebar-close">
+        <i class="ion-close-round"></i>
+      </div>
+    </div>
+    <div class="menu-block customscroll">
+      <div class="sidebar-menu">
+        <ul id="accordion-menu">
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="index.html">Dashboard style 1</a></li>
+              <li><a href="index2.html">Dashboard style 2</a></li>
+              <li><a href="index3.html">Dashboard style 3</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-edit2"></span><span class="mtext">Forms</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="form-basic.html">Form Basic</a></li>
+              <li><a href="advanced-components.html">Advanced Components</a></li>
+              <li><a href="form-wizard.html">Form Wizard</a></li>
+              <li><a href="html5-editor.html">HTML5 Editor</a></li>
+              <li><a href="form-pickers.html">Form Pickers</a></li>
+              <li><a href="image-cropper.html">Image Cropper</a></li>
+              <li><a href="image-dropzone.html">Image Dropzone</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-library"></span><span class="mtext">Tables</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="basic-table.html">Basic Tables</a></li>
+              <li><a href="datatable.html">DataTables</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="calendar.html" class="dropdown-toggle no-arrow">
+              <span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-apartment"></span><span class="mtext"> UI Elements </span>
+            </a>
+            <ul class="submenu">
+              <li><a href="ui-buttons.html">Buttons</a></li>
+              <li><a href="ui-cards.html">Cards</a></li>
+              <li><a href="ui-cards-hover.html">Cards Hover</a></li>
+              <li><a href="ui-modals.html">Modals</a></li>
+              <li><a href="ui-tabs.html">Tabs</a></li>
+              <li><a href="ui-tooltip-popover.html">Tooltip &amp; Popover</a></li>
+              <li><a href="ui-sweet-alert.html">Sweet Alert</a></li>
+              <li><a href="ui-notification.html">Notification</a></li>
+              <li><a href="ui-timeline.html">Timeline</a></li>
+              <li><a href="ui-progressbar.html">Progressbar</a></li>
+              <li><a href="ui-typography.html">Typography</a></li>
+              <li><a href="ui-list-group.html">List group</a></li>
+              <li><a href="ui-range-slider.html">Range slider</a></li>
+              <li><a href="ui-carousel.html">Carousel</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-paint-brush"></span><span class="mtext">Icons</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="font-awesome.html">FontAwesome Icons</a></li>
+              <li><a href="foundation.html">Foundation Icons</a></li>
+              <li><a href="ionicons.html">Ionicons Icons</a></li>
+              <li><a href="themify.html">Themify Icons</a></li>
+              <li><a href="custom-icon.html">Custom Icons</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-analytics-21"></span><span class="mtext">Charts</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="highchart.html">Highchart</a></li>
+              <li><a href="knob-chart.html">jQuery Knob</a></li>
+              <li><a href="jvectormap.html">jvectormap</a></li>
+              <li><a href="apexcharts.html">Apexcharts</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-right-arrow1"></span><span class="mtext">Additional Pages</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="video-player.html">Video Player</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="forgot-password.html">Forgot Password</a></li>
+              <li><a href="reset-password.html">Reset Password</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-browser2"></span><span class="mtext">Error Pages</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="400.html">400</a></li>
+              <li><a href="403.html">403</a></li>
+              <li><a href="404.html">404</a></li>
+              <li><a href="500.html">500</a></li>
+              <li><a href="503.html">503</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-copy"></span><span class="mtext">Extra Pages</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="blank.html">Blank</a></li>
+              <li><a href="contact-directory.html">Contact Directory</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="blog-detail.html">Blog Detail</a></li>
+              <li><a href="product.html">Product</a></li>
+              <li><a href="product-detail.html">Product Detail</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="pricing-table.html">Pricing Tables</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-list3"></span><span class="mtext">Multi Level Menu</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="javascript:;">Level 1</a></li>
+              <li><a href="javascript:;">Level 1</a></li>
+              <li><a href="javascript:;">Level 1</a></li>
+              <li class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle">
+                  <span class="micon fa fa-plug"></span><span class="mtext">Level 2</span>
+                </a>
+                <ul class="submenu child">
+                  <li><a href="javascript:;">Level 2</a></li>
+                  <li><a href="javascript:;">Level 2</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:;">Level 1</a></li>
+              <li><a href="javascript:;">Level 1</a></li>
+              <li><a href="javascript:;">Level 1</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="sitemap.html" class="dropdown-toggle no-arrow">
+              <span class="micon dw dw-diagram"></span><span class="mtext">Sitemap</span>
+            </a>
+          </li>
+          <li>
+            <a href="chat.html" class="dropdown-toggle no-arrow">
+              <span class="micon dw dw-chat3"></span><span class="mtext">Chat</span>
+            </a>
+          </li>
+          <li>
+            <a href="invoice.html" class="dropdown-toggle no-arrow">
+              <span class="micon dw dw-invoice"></span><span class="mtext">Invoice</span>
+            </a>
+          </li>
+          <li>
+            <div class="dropdown-divider"></div>
+          </li>
+          <li>
+            <div class="sidebar-small-cap">Extra</div>
+          </li>
+          <li>
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="micon dw dw-edit-2"></span><span class="mtext">Documentation</span>
+            </a>
+            <ul class="submenu">
+              <li><a href="introduction.html">Introduction</a></li>
+              <li><a href="getting-started.html">Getting Started</a></li>
+              <li><a href="color-settings.html">Color Settings</a></li>
+              <li><a href="third-party-plugins.html">Third Party Plugins</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
+              <span class="micon dw dw-paper-plane1"></span>
+              <span class="mtext">Landing Page <img src="template/vendors/images/coming-soon.png" alt="" width="25"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu-overlay"></div>
+
+  <div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+      <div class="min-height-200px">
+        <div class="page-header">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div class="title">
+                <h4>blank</h4>
+              </div>
+              <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">blank</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="col-md-6 col-sm-12 text-right">
+              <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                  January 2018
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#">Export List</a>
+                  <a class="dropdown-item" href="#">Policies</a>
+                  <a class="dropdown-item" href="#">View Assets</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pd-20 bg-white border-radius-4 box-shadow mb-30">
+        </div>
+      </div>
+      <div class="footer-wrap pd-20 mb-20 card-box">
+        DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+      </div>
+    </div>
+  </div>
 </div>
 </template>
-
-<script>
-export default {
-  name: "admin"
-}
-</script>
-
-<style scoped>
-
-</style>

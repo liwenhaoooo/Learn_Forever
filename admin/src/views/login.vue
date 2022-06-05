@@ -1,72 +1,96 @@
 <template>
-  <div class="container">
+  <div>
+    <div class="login-page">
+    <div class="login-header box-shadow">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="brand-logo">
+          <a href="login.html">
+            <img src="template/vendors/images/deskapp-logo.svg" alt="">
+          </a>
+        </div>
+        <div class="login-menu">
 
-    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        </div>
+      </div>
+    </div>
+    <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
-            <div class="d-flex justify-content-center py-4">
-              <a href="index.html" class="logo d-flex align-items-center w-auto">
-                <img src="template/assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">Learn_Forever Admin</span>
-              </a>
-            </div><!-- End Logo -->
-
-            <div class="card mb-3">
-
-              <div class="card-body">
-
-                <div class="pt-4 pb-2">
-                  <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                  <p class="text-center small">Enter your username & password to login</p>
-                </div>
-
-                <form class="row g-3 needs-validation" novalidate>
-
-                  <div class="col-12">
-                    <label for="yourUsername" class="form-label">Username</label>
-                    <div class="input-group has-validation">
-                      <span class="input-group-text" id="inputGroupPrepend">@</span>
-                      <input type="text" name="username" class="form-control" id="yourUsername" required>
-                      <div class="invalid-feedback">Please enter your username.</div>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="yourPassword" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="yourPassword" required>
-                    <div class="invalid-feedback">Please enter your password!</div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <button class="btn btn-primary w-100" type="submit"
-                            v-on:click="login">Login</button>
-                  </div>
-                </form>
-
+        <div class="row align-items-center">
+          <div class="col-md-6 col-lg-7">
+            <img src="template/vendors/images/login-page-img.png" alt="">
+          </div>
+          <div class="col-md-6 col-lg-5">
+            <div class="login-box bg-white box-shadow border-radius-10">
+              <div class="login-title">
+                <h2 class="text-center text-primary">Login To DeskApp</h2>
               </div>
-            </div>
-
-            <div class="credits">
-              <!-- All the links in the footer should remain intact. -->
-              <!-- You can delete the links only if you purchased the pro version. -->
-              <!-- Licensing information: https://bootstrapmade.com/license/ -->
-              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-              Designed by <a>&copy; Learn_Forever</a>
+              <form>
+<!--                <div class="select-role">-->
+<!--                  <div class="btn-group btn-group-toggle" data-toggle="buttons">-->
+<!--                    <label class="btn active">-->
+<!--                      <input type="radio" name="options" id="admin">-->
+<!--                      <div class="icon"><img src="template/vendors/images/briefcase.svg" class="svg" alt=""></div>-->
+<!--                      <span>I'm</span>-->
+<!--                      Manager-->
+<!--                    </label>-->
+<!--                    <label class="btn">-->
+<!--                      <input type="radio" name="options" id="user">-->
+<!--                      <div class="icon"><img src="template/vendors/images/person.svg" class="svg" alt=""></div>-->
+<!--                      <span>I'm</span>-->
+<!--                      Employee-->
+<!--                    </label>-->
+<!--                  </div>-->
+<!--                </div>-->
+                <div class="input-group custom">
+                  <input type="text" class="form-control form-control-lg" placeholder="Username">
+                  <div class="input-group-append custom">
+                    <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
+                  </div>
+                </div>
+                <div class="input-group custom">
+                  <input type="password" class="form-control form-control-lg" placeholder="**********">
+                  <div class="input-group-append custom">
+                    <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
+                  </div>
+                </div>
+                <div class="row pb-30">
+                  <div class="col-6">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label" for="customCheck1">Remember</label>
+                    </div>
+                  </div>
+<!--                  <div class="col-6">-->
+<!--                    <div class="forgot-password"><a href="forgot-password.html">Forgot Password</a></div>-->
+<!--                  </div>-->
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="input-group mb-0">
+                      <!--
+                        use code for form submit
+                        <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
+                      -->
+                      <button type="button" class="btn btn-primary btn-lg btn-block"  v-on:click="login()">Sign In</button>
+                    </div>
+<!--                    <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>-->
+<!--                    <div class="input-group mb-0">-->
+<!--                      <a class="btn btn-outline-primary btn-lg btn-block" href="register.html">Register To Create Account</a>-->
+<!--                    </div>-->
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-
-    </section>
-
+    </div>
+<!--    &lt;!&ndash; js &ndash;&gt;-->
+<!--    <script src="vendors/scripts/core.js"></script>-->
+<!--    <script src="vendors/scripts/script.min.js"></script>-->
+<!--    <script src="vendors/scripts/process.js"></script>-->
+<!--    <script src="vendors/scripts/layout-settings.js"></script>-->
+    </div>
   </div>
 </template>
 <script>
