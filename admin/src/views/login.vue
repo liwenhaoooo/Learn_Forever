@@ -1,96 +1,72 @@
 <template>
-  <div>
-    <div class="login-page">
-    <div class="login-header box-shadow">
-      <div class="container-fluid d-flex justify-content-between align-items-center">
-        <div class="brand-logo">
-          <a href="login.html">
-            <img src="template/vendors/images/deskapp-logo.svg" alt="">
-          </a>
-        </div>
-        <div class="login-menu">
-
-        </div>
+  <div class="hold-transition login-page">
+  <div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
       </div>
-    </div>
-    <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 col-lg-7">
-            <img src="template/vendors/images/login-page-img.png" alt="">
-          </div>
-          <div class="col-md-6 col-lg-5">
-            <div class="login-box bg-white box-shadow border-radius-10">
-              <div class="login-title">
-                <h2 class="text-center text-primary">Login To DeskApp</h2>
+      <div class="card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+
+        <form action="../../index3.html" method="post">
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
               </div>
-              <form>
-<!--                <div class="select-role">-->
-<!--                  <div class="btn-group btn-group-toggle" data-toggle="buttons">-->
-<!--                    <label class="btn active">-->
-<!--                      <input type="radio" name="options" id="admin">-->
-<!--                      <div class="icon"><img src="template/vendors/images/briefcase.svg" class="svg" alt=""></div>-->
-<!--                      <span>I'm</span>-->
-<!--                      Manager-->
-<!--                    </label>-->
-<!--                    <label class="btn">-->
-<!--                      <input type="radio" name="options" id="user">-->
-<!--                      <div class="icon"><img src="template/vendors/images/person.svg" class="svg" alt=""></div>-->
-<!--                      <span>I'm</span>-->
-<!--                      Employee-->
-<!--                    </label>-->
-<!--                  </div>-->
-<!--                </div>-->
-                <div class="input-group custom">
-                  <input type="text" class="form-control form-control-lg" placeholder="Username">
-                  <div class="input-group-append custom">
-                    <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
-                  </div>
-                </div>
-                <div class="input-group custom">
-                  <input type="password" class="form-control form-control-lg" placeholder="**********">
-                  <div class="input-group-append custom">
-                    <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
-                  </div>
-                </div>
-                <div class="row pb-30">
-                  <div class="col-6">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1">Remember</label>
-                    </div>
-                  </div>
-<!--                  <div class="col-6">-->
-<!--                    <div class="forgot-password"><a href="forgot-password.html">Forgot Password</a></div>-->
-<!--                  </div>-->
-                </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="input-group mb-0">
-                      <!--
-                        use code for form submit
-                        <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
-                      -->
-                      <button type="button" class="btn btn-primary btn-lg btn-block"  v-on:click="login()">Sign In</button>
-                    </div>
-<!--                    <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>-->
-<!--                    <div class="input-group mb-0">-->
-<!--                      <a class="btn btn-outline-primary btn-lg btn-block" href="register.html">Register To Create Account</a>-->
-<!--                    </div>-->
-                  </div>
-                </div>
-              </form>
             </div>
           </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="remember">
+                <label for="remember">
+                  Remember Me
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block"
+              v-on:click="login">Sign In</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+        <div class="social-auth-links text-center mt-2 mb-3">
+          <a href="#" class="btn btn-block btn-primary">
+            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+          </a>
+          <a href="#" class="btn btn-block btn-danger">
+            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+          </a>
         </div>
+        <!-- /.social-auth-links -->
+
+        <p class="mb-1">
+          <a href="forgot-password.html">I forgot my password</a>
+        </p>
+        <p class="mb-0">
+          <a href="register.html" class="text-center">Register a new membership</a>
+        </p>
       </div>
+      <!-- /.card-body -->
     </div>
-<!--    &lt;!&ndash; js &ndash;&gt;-->
-<!--    <script src="vendors/scripts/core.js"></script>-->
-<!--    <script src="vendors/scripts/script.min.js"></script>-->
-<!--    <script src="vendors/scripts/process.js"></script>-->
-<!--    <script src="vendors/scripts/layout-settings.js"></script>-->
-    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.login-box -->
+
   </div>
 </template>
 <script>
