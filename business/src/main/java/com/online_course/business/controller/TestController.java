@@ -1,4 +1,4 @@
-package com.onlien_course.business.controller;
+package com.online_course.business.controller;
 
 import com.online_course.server.domain.Test;
 import com.online_course.server.service.TestService;
