@@ -1,5 +1,6 @@
 package com.online_course.server.service;
 
+import com.github.pagehelper.PageHelper;
 import com.online_course.server.domain.Chapter;
 import com.online_course.server.domain.ChapterExample;
 import com.online_course.server.dto.ChapterDto;
@@ -22,6 +23,7 @@ public class ChapterService {
     private ChapterMapper chapterMapper;
 
     public List<ChapterDto> list() {
+        PageHelper.startPage(1,1);
         ChapterExample chapterExample = new ChapterExample();
         List<Chapter> chaptersList = chapterMapper.selectByExample(chapterExample);
         List<ChapterDto> chapterDtoList = new ArrayList<ChapterDto>();

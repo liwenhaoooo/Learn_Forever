@@ -33,7 +33,6 @@
             <td>{{ chapter.courseId }}</td>
             <td>... ... ... ... </td>
           </tr>
-
           </tbody>
         </table>
       </div>
