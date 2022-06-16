@@ -54,14 +54,17 @@ export default {
     _this.list();
 
   },
-  methods: {
+  methods:{
     list() {
       let _this = this;
-      _this.$ajax.get('http://127.0.0.1:10000/business/admin/chapter/list').then((response)=>{
-        console.log("查询大章列表Chapter结果：", response);
-        _this.chapters = response.data;
+      _this.$ajax.post('http://127.0.0.1:10000/business/admin/chapter/list',{
+        page:1,
+        size:1
+      }).then((response)=>{
+        console.log("查询大章列表结果：", response);
+        _this.chapters = response.data.list;
       })
     }
-  }
+  },
 }
 </script>
