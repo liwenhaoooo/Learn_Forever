@@ -14,19 +14,9 @@
             v-on:click="selectPage(page + 1)">Next</button>
 
     &nbsp;
-<!--    <span class="m&#45;&#45;padding-10">-->
-<!--        每页-->
-<!--        <select v-model="size">-->
-<!--            <option value="1">1</option>-->
-<!--            <option value="5">5</option>-->
-<!--            <option value="10">10</option>-->
-<!--            <option value="20">20</option>-->
-<!--            <option value="50">50</option>-->
-<!--            <option value="100">100</option>-->
-<!--        </select>-->
-<!--        条，共【{{total}}】条-->
-<!--    </span>-->
+<!--    <p>Showing 1 to 10 of {{total}} entries</p>-->
   </div>
+
 </template>
 
 <script>
