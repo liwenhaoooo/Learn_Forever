@@ -177,7 +177,7 @@
                   <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-edit"></i>
                     <p>
-                      Forms
+                      系统管理
                       <i class="fas fa-angle-left right"></i>
                     </p>
                   </a>
@@ -185,25 +185,13 @@
                     <li class="nav-item">
                       <a href="../forms/general.html" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>General Elements</p>
+                        <p>用户管理</p>
                       </a>
                     </li>
                     <li class="nav-item">
                       <a href="../forms/advanced.html" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Advanced Elements</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../forms/editors.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Editors</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../forms/validation.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Validation</p>
+                        <p>权限管理</p>
                       </a>
                     </li>
                   </ul>
@@ -212,29 +200,18 @@
                   <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-table"></i>
                     <p>
-                      Tables
+                      业务管理
                       <i class="fas fa-angle-left right"></i>
                     </p>
                   </a>
                   <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="../tables/simple.html" class="nav-link">
+                    <li class="nav-item" id="business-chapter-sidebar">
+                      <router-link to="/admin/business/chapter" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Simple Tables</p>
-                      </a>
+                        <p>大章管理</p>
+                      </router-link>
                     </li>
-                    <li class="nav-item">
-                      <a href="../tables/data.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>DataTables</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../tables/jsgrid.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>jsGrid</p>
-                      </a>
-                    </li>
+
                   </ul>
                 </li>
               </ul>
@@ -293,3 +270,19 @@
   </div>
   <!-- ./wrapper -->
 </template>
+
+
+<script>
+export default {
+  name: "admin",
+  mounted: function () {
+  },
+  methods: {
+    login() {
+      this.$router.push("/admin")
+    },
+  }
+}
+</script>
+
+

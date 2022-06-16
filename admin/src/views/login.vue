@@ -58,9 +58,16 @@ export default {
   name: 'login',
   methods:{
     login(){
-      this.$router.push("/admin")
+      this.$router.push({
+        path: "/admin/welcome",
+      });
+      setTimeout(function () {
+        window.location.reload();
+      }, 10);
+
     }
   }
 }
+
 </script>
 
