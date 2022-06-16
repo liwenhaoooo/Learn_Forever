@@ -59,7 +59,7 @@ export default {
   methods:{
     login(){
       this.$router.push({
-        path: "/admin/welcome",
+        path: "/welcome",
       });
       setTimeout(function () {
         window.location.reload();

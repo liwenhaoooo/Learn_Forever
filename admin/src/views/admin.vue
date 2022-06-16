@@ -206,7 +206,7 @@
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item" id="business-chapter-sidebar">
-                      <router-link to="/admin/business/chapter" class="nav-link">
+                      <router-link to="/business/chapter" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>大章管理</p>
                       </router-link>
