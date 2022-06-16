@@ -1,7 +1,7 @@
 <template>
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Responsive Hover Table</h3>
+        <h3 class="card-title">Chapter Table</h3>
 
         <div class="card-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
@@ -21,41 +21,19 @@
           <thead>
           <tr>
             <th>ID</th>
-            <th>User</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Reason</th>
+            <th>Name</th>
+            <th>ClassID</th>
+            <th>Operation</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>183</td>
-            <td>John Doe</td>
-            <td>11-7-2014</td>
-            <td><span class="tag tag-success">Approved</span></td>
-            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+          <tr v-for="chapter in chapters">
+            <td>{{ chapter.id }}</td>
+            <td>{{ chapter.name }}</td>
+            <td>{{ chapter.courseId }}</td>
+            <td>... ... ... ... </td>
           </tr>
-          <tr>
-            <td>219</td>
-            <td>Alexander Pierce</td>
-            <td>11-7-2014</td>
-            <td><span class="tag tag-warning">Pending</span></td>
-            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-          </tr>
-          <tr>
-            <td>657</td>
-            <td>Bob Doe</td>
-            <td>11-7-2014</td>
-            <td><span class="tag tag-primary">Approved</span></td>
-            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-          </tr>
-          <tr>
-            <td>175</td>
-            <td>Mike Doe</td>
-            <td>11-7-2014</td>
-            <td><span class="tag tag-danger">Denied</span></td>
-            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-          </tr>
+
           </tbody>
         </table>
       </div>
@@ -67,6 +45,11 @@
 <script>
 export default {
   name: "chapter",
+  data: function (){
+    return {
+      chapters :[]
+    }
+  },
   mounted: function() {
     let _this = this;
     _this.list();
@@ -77,6 +60,7 @@ export default {
       let _this = this;
       _this.$ajax.get('http://127.0.0.1:10002/business/admin/chapter/list').then((response)=>{
         console.log("查询大章列表Chapter结果：", response);
+        _this.chapters = response.data;
       })
     }
   }

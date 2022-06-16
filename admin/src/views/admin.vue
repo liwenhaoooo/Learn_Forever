@@ -155,7 +155,7 @@
             <img src="../../public/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" class="d-block">Test User</a>
           </div>
         </div>
 
@@ -257,9 +257,9 @@
 
     <footer class="main-footer">
       <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
+        <b>Version</b> 0.0.1
       </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2022-2022 <a href="https://github.com/liwenhaoooo/Learn_Forever">Learn_Forever</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->
