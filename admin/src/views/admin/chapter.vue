@@ -5,6 +5,9 @@
 
       <div class="card-header">
         <td>
+          <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-success">Add</button>
+        </td>
+        <td>
           <button v-on:click="list(1)" type="button" class="btn btn-block bg-gradient-success">Refresh</button>
         </td>
 
@@ -46,6 +49,38 @@
     </div>
     <!-- /.card -->
     <pagination ref="pagination" v-bind:list="list" v-bind:itemCount="10"></pagination>
+
+    <div class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Chapter</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <input class="form-control" placeholder="Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">CourseID</label>
+                <div class="col-sm-10">
+                  <input class="form-control" placeholder="CourseID">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
   </div>
 
 </template>
@@ -67,6 +102,10 @@ export default {
 
   },
   methods:{
+    add() {
+      let _this = this;
+      $(".modal").modal("show");
+    },
     list(page) {
       let _this = this;
       _this.$ajax.post('http://127.0.0.1:10000/business/admin/chapter/list',{
