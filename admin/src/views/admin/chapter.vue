@@ -147,6 +147,7 @@ export default {
         if (resp.success) {
           $("#form-modal").modal("hide");
           _this.list(1);
+          toast.success("Saved successfully！");
         }
       })
     },
@@ -168,11 +169,7 @@ export default {
             let resp = response.data;
             if (resp.success) {
               _this.list(1);
-              Swal.fire(
-                  'Deleted!',
-                  'Your data has been deleted.',
-                  'Success'
-              )
+              toast.success("Delete successful！");
             }
           })
 
