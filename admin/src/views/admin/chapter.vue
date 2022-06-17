@@ -143,6 +143,14 @@ export default {
 
     save(page) {
       let _this = this;
+
+      // 保存校验
+      if (!Validator.require(_this.chapter.name, "Name")
+          || !Validator.require(_this.chapter.courseId, "CourseID")
+          || !Validator.length(_this.chapter.courseId, "CourseID", 1, 8)) {
+        return;
+      }
+
       Loading.show();
       _this.$ajax.post('http://127.0.0.1:10000/business/admin/chapter/save', _this.chapter).then((response)=>{
         Loading.hide();
