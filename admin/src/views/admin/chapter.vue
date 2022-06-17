@@ -46,7 +46,7 @@
               <div>
                 <button v-on:click="edit(chapter)" type="button" class="btn btn btn-warning">&nbsp;Edit&nbsp;</button>
                 &nbsp;
-                <button type="button" class="btn btn btn-danger">Delete</button>
+                <button v-on:click="del(chapter.id)" type="button" class="btn btn btn-danger">Delete</button>
               </div>
            </td>
           </tr>
@@ -146,6 +146,16 @@ export default {
         let resp = response.data;
         if (resp.success) {
           $("#form-modal").modal("hide");
+          _this.list(1);
+        }
+      })
+    },
+    del(id) {
+      let _this = this;
+      _this.$ajax.delete('http://127.0.0.1:10000/business/admin/chapter/delete/' + id).then((response)=>{
+        console.log("删除大章列表结果：", response);
+        let resp = response.data;
+        if (resp.success) {
           _this.list(1);
         }
       })
