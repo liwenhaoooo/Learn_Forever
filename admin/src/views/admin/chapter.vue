@@ -159,7 +159,9 @@ export default {
         if (resp.success) {
           $("#form-modal").modal("hide");
           _this.list(1);
-          Toast.success("Saved successfully !");
+          Toast.success("Saved successful !");
+        } else {
+          Toast.warning(resp.message)
         }
       })
     },
