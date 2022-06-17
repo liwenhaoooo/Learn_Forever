@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.online_course.server.domain.Chapter;
 import com.online_course.server.dto.ChapterDto;
 import com.online_course.server.dto.PageDto;
+import com.online_course.server.dto.ResponseDto;
 import com.online_course.server.service.ChapterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,16 +28,22 @@ public class ChapterController {
 
     @Resource
     private ChapterService chapterService;
+
     @RequestMapping("/list")
-    public PageDto list(@RequestBody PageDto pageDto){
-         LOG.info("pageDto: {}",pageDto);
-         chapterService.list(pageDto);
-         return pageDto;
+    public ResponseDto list(@RequestBody PageDto pageDto) {
+        LOG.info("pageDto: {}", pageDto);
+        ResponseDto responseDto = new ResponseDto();
+        chapterService.list(pageDto);
+        responseDto.setContent(pageDto);
+        return responseDto;
     }
+
     @RequestMapping("/save")
-    public ChapterDto save(@RequestBody ChapterDto chapterDto) {
+    public ResponseDto save(@RequestBody ChapterDto chapterDto) {
         LOG.info("chapterDto: {}", chapterDto);
+        ResponseDto responseDto = new ResponseDto();
         chapterService.save(chapterDto);
-        return chapterDto;
+        responseDto.setContent(chapterDto);
+        return responseDto;
     }
 }

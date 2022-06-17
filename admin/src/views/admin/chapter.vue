@@ -4,12 +4,15 @@
     <div class="card">
 
       <div class="card-header">
+     <tr>
         <td>
-          <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-success">Add</button>
-        </td>
+       <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-info">&nbsp;&nbsp;Add&nbsp;&nbsp;</button>&emsp;
+     </td>
+       &nbsp;
         <td>
-          <button v-on:click="list(1)" type="button" class="btn btn-block bg-gradient-success">Refresh</button>
-        </td>
+        <button v-on:click="list(1)" type="button" class="btn btn-block bg-gradient-success">Refresh</button>
+     </td>
+     </tr>
 
 <!--        <div class="card-tools">-->
 <!--          <div class="input-group input-group-sm" style="width: 150px;">-->
@@ -39,7 +42,13 @@
             <td>{{ chapter.id }}</td>
             <td>{{ chapter.name }}</td>
             <td>{{ chapter.courseId }}</td>
-            <td>... ... ... ... </td>
+            <td>
+              <div>
+                <button v-on:click="edit(chapter)" type="button" class="btn btn btn-warning">&nbsp;Edit&nbsp;</button>
+                &nbsp;
+                <button type="button" class="btn btn btn-danger">Delete</button>
+              </div>
+           </td>
           </tr>
           </tbody>
         </table>
@@ -50,7 +59,10 @@
     <!-- /.card -->
     <pagination ref="pagination" v-bind:list="list" v-bind:itemCount="10"></pagination>
 
-    <div class="modal fade" tabindex="-1" role="dialog">
+
+
+
+    <div id="form-modal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -105,7 +117,14 @@ export default {
   methods:{
     add() {
       let _this = this;
-      $(".modal").modal("show");
+      _this.chapter = {};
+      $("#form-modal").modal("show");
+    },
+
+    edit(chapter) {
+      let _this = this;
+      _this.chapter = $.extend({}, chapter);
+      $("#form-modal").modal("show");
     },
     list(page) {
       let _this = this;
@@ -114,8 +133,9 @@ export default {
         size:_this.$refs.pagination.size,
       }).then((response)=>{
         console.log("查询大章列表结果：", response);
-        _this.chapters = response.data.list;
-        _this.$refs.pagination.render(page, response.data.total);
+        let resp = response.data;
+        _this.chapters = resp.content.list;
+        _this.$refs.pagination.render(page, resp.content.total);
       })
     },
 
@@ -123,6 +143,11 @@ export default {
       let _this = this;
       _this.$ajax.post('http://127.0.0.1:10000/business/admin/chapter/save', _this.chapter).then((response)=>{
         console.log("保存大章列表结果：", response);
+        let resp = response.data;
+        if (resp.success) {
+          $("#form-modal").modal("hide");
+          _this.list(1);
+        }
       })
     }
   }
