@@ -177,7 +177,7 @@
                   <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-edit"></i>
                     <p>
-                      系统管理
+                      System
                       <i class="fas fa-angle-left right"></i>
                     </p>
                   </a>
@@ -200,7 +200,7 @@
                   <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-table"></i>
                     <p>
-                      业务管理
+                      Business
                       <i class="fas fa-angle-left right"></i>
                     </p>
                   </a>
@@ -208,7 +208,7 @@
                     <li class="nav-item" id="business-chapter-sidebar">
                       <router-link to="/business/chapter" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>大章管理</p>
+                        <p>Chapter</p>
                       </router-link>
                     </li>
 

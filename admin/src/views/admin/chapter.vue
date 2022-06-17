@@ -151,37 +151,25 @@ export default {
         if (resp.success) {
           $("#form-modal").modal("hide");
           _this.list(1);
-          toast.success("Saved successfully！");
+          Toast.success("Saved successfully !");
         }
       })
     },
 
     del(id) {
       let _this = this;
-
-      Swal.fire({
-        title: 'Are you sure? ',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.value) {
-          Loading.show();
-          _this.$ajax.delete('http://127.0.0.1:10000/business/admin/chapter/delete/' + id).then((response)=>{
-            Loading.hide();
-            console.log("删除大章列表结果：", response);
-            let resp = response.data;
-            if (resp.success) {
-              _this.list(1);
-              toast.success("Delete successful！");
-            }
-          })
-
-        }
-      })
+      Confirm.show("After deletion, it cannot be recovered. Confirm deletion?", function () {
+        Loading.show();
+        _this.$ajax.delete('http://127.0.0.1:10000/business/admin/chapter/delete/' + id).then((response)=>{
+          Loading.hide();
+          console.log("删除大章列表结果：", response);
+          let resp = response.data;
+          if (resp.success) {
+            _this.list(1);
+            Toast.success("Delete successful !");
+          }
+        })
+      });
 
     }
   }

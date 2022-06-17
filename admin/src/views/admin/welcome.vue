@@ -1,7 +1,7 @@
 <template>
 <div>
   <h1>
-    您好，欢迎进入后台系统！
+    Welcome to the backend management system !
   </h1>
 </div>
 </template>
