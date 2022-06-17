@@ -2,6 +2,7 @@ package com.online_course.server.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.online_course.server.UuidUtil;
 import com.online_course.server.domain.Chapter;
 import com.online_course.server.domain.ChapterExample;
 import com.online_course.server.dto.ChapterDto;
@@ -40,5 +41,12 @@ public class ChapterService {
         }
         pageDto.setList(chapterDtoList);
 
+    }
+
+    public void save(ChapterDto chapterDto) {
+        chapterDto.setId(UuidUtil.getShortUuid());
+        Chapter chapter = new Chapter();
+        BeanUtils.copyProperties(chapterDto, chapter);
+        chapterMapper.insert(chapter);
     }
 }
