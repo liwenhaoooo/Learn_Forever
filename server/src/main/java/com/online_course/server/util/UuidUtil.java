@@ -1,4 +1,4 @@
-package com.online_course.server;
+package com.online_course.server.util;
 
 import java.util.UUID;
 
