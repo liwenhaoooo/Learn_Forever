@@ -17,16 +17,14 @@
         <table class="table table-hover text-nowrap">
           <thead>
           <tr>
-            <th>ID</th>
-            <th>标题</th>
-            <th>课程</th>
-            <th>大章</th>
-            <th>视频</th>
-            <th>时长</th>
-            <th>收费</th>
-            <th>顺序</th>
-            <th>创建时间</th>
-            <th>修改时间</th>
+                            <th>ID</th>
+                <th>标题</th>
+                <th>课程</th>
+                <th>大章</th>
+                <th>视频</th>
+                <th>时长</th>
+                <th>收费</th>
+                <th>顺序</th>
             <th>Operation</th>
           </tr>
           </thead>
@@ -41,8 +39,6 @@
             <td>{{section.time}}</td>
             <td>{{section.charge}}</td>
             <td>{{section.sort}}</td>
-            <td>{{section.createdAt}}</td>
-            <td>{{section.updatedAt}}</td>
           <td>
             <div>
               <button v-on:click="edit(section)" type="button" class="btn btn btn-warning">&nbsp;Edit&nbsp;</button>
@@ -69,12 +65,6 @@
           </div>
           <div class="modal-body">
             <form class="form-horizontal">
-              <div class="form-group">
-                <label class="col-sm-2 control-label">ID</label>
-                <div class="col-sm-10">
-                  <input v-model="section.id" class="form-control" placeholder="ID">
-                </div>
-              </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">标题</label>
                 <div class="col-sm-10">
@@ -117,18 +107,6 @@
                   <input v-model="section.sort" class="form-control" placeholder="顺序">
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">创建时间</label>
-                <div class="col-sm-10">
-                  <input v-model="section.createdAt" class="form-control" placeholder="创建时间">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">修改时间</label>
-                <div class="col-sm-10">
-                  <input v-model="section.updatedAt" class="form-control" placeholder="修改时间">
-                </div>
-              </div>
             </form>
           </div>
           <div class="modal-footer">
@@ -141,6 +119,8 @@
   </div>
 
 </template>
+
+
 
 <script>
 import Pagination from "../../components/pagination";
