@@ -9,12 +9,10 @@ import com.online_course.server.domain.ChapterExample;
 import com.online_course.server.dto.ChapterDto;
 import com.online_course.server.dto.PageDto;
 import com.online_course.server.mapper.ChapterMapper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
