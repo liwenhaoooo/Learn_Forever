@@ -17,13 +17,13 @@
         <table class="table table-hover text-nowrap">
           <thead>
           <tr>
-                            <th>ID</th>
+               <th>ID</th>
                 <th>标题</th>
                 <th>课程</th>
                 <th>大章</th>
                 <th>视频</th>
                 <th>时长</th>
-                <th>收费</th>
+                <th>Tariff</th>
                 <th>顺序</th>
             <th>Operation</th>
           </tr>
@@ -37,7 +37,7 @@
             <td>{{section.chapterId}}</td>
             <td>{{section.video}}</td>
             <td>{{section.time}}</td>
-            <td>{{section.charge}}</td>
+            <td>{{CHARGE | optionKV(section.charge)}}</td>
             <td>{{section.sort}}</td>
           <td>
             <div>
@@ -96,9 +96,11 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label">收费</label>
+                <label class="col-sm-2 control-label">Tariff</label>
                 <div class="col-sm-10">
-                  <input v-model="section.charge" class="form-control" placeholder="收费">
+                  <select v-model="section.charge" class="form-control">
+                    <option v-for="o in CHARGE" v-bind:value="o.key">{{o.value}}</option>
+                  </select>
                 </div>
               </div>
               <div class="form-group">
@@ -119,9 +121,6 @@
   </div>
 
 </template>
-
-
-
 <script>
 import Pagination from "../../components/pagination";
 export default {
@@ -130,7 +129,8 @@ export default {
   data: function (){
     return {
       section: {},
-      sections :[]
+      sections: [],
+      CHARGE: [{key:"C", value:"Charge"},{key:"F", value:"Free"}],
     }
   },
   mounted: function() {

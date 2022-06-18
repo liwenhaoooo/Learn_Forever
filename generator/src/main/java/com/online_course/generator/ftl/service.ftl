@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 import java.util.List;
 <#list typeSet as type>
     <#if type=='Date'>
-        import java.util.Date;
+    import java.util.Date;
     </#if>
 </#list>
 
@@ -35,11 +35,11 @@ public class ${Domain}Service {
     public void list(PageDto pageDto) {
         PageHelper.startPage(pageDto.getPage(), pageDto.getSize());
         ${Domain}Example ${domain}Example = new ${Domain}Example();
-        <#list fieldList as field>
-            <#if field.nameHump=='sort'>
-                ${domain}Example.setOrderByClause("sort asc");
-            </#if>
-        </#list>
+    <#list fieldList as field>
+        <#if field.nameHump=='sort'>
+            ${domain}Example.setOrderByClause("sort asc");
+        </#if>
+    </#list>
         List<${Domain}> ${domain}List = ${domain}Mapper.selectByExample(${domain}Example);
         PageInfo<${Domain}> pageInfo = new PageInfo<>(${domain}List);
         pageDto.setTotal(pageInfo.getTotal());
