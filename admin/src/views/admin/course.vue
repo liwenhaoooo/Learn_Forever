@@ -12,51 +12,97 @@
           </td>
         </tr>
       </div>
-      <!-- /.card-header -->
-      <div class="card-body table-responsive p-0">
-        <table class="table table-hover text-nowrap">
-          <thead>
-          <tr>
-                            <th>id</th>
-                <th>名称</th>
-                <th>概述</th>
-                <th>时长</th>
-                <th>价格（元）</th>
-                <th>封面</th>
-                <th>级别</th>
-                <th>收费</th>
-                <th>状态</th>
-                <th>报名数</th>
-                <th>顺序</th>
-            <th>Operation</th>
-          </tr>
-          </thead>
 
-          <tbody>
-          <tr v-for="course in courses">
-                  <td>{{course.id}}</td>
-                  <td>{{course.name}}</td>
-                  <td>{{course.summary}}</td>
-                  <td>{{course.time}}</td>
-                  <td>{{course.price}}</td>
-                  <td>{{course.image}}</td>
-                  <td>{{COURSE_LEVEL | optionKV(course.level)}}</td>
-                  <td>{{COURSE_CHARGE | optionKV(course.charge)}}</td>
-                  <td>{{COURSE_STATUS | optionKV(course.status)}}</td>
-                  <td>{{course.enroll}}</td>
-                  <td>{{course.sort}}</td>
-          <td>
-            <div>
-              <button v-on:click="edit(course)" type="button" class="btn btn btn-warning">&nbsp;Edit&nbsp;</button>
+      <div class="row">
+        <div v-for="course in courses" class="col-md-4">
+          <!-- Profile Image -->
+          <div class="card card-primary card-outline">
+            <div class="card-body box-profile">
+              <div class="text-center">
+                <img v-show="!course.image" class="media-object" src="/static/image/demo-course.jpg">
+                <img v-show="course.image" class="media-object" v-bind:src="course.image">
+              </div>
               &nbsp;
-              <button v-on:click="del(course.id)" type="button" class="btn btn btn-danger">Delete</button>
-            </div>
-          </td>
-          </tr>
-          </tbody>
-        </table>
+              <ul class="text-right">
+                  <span class="bg-purple color-palette">{{COURSE_LEVEL | optionKV(course.level)}}</span>
+           &nbsp; <span class="bg-purple color-palette">{{COURSE_CHARGE | optionKV(course.charge)}}</span>
+           &nbsp;<span class="bg-purple color-palette">{{COURSE_STATUS | optionKV(course.status)}}</span>
+              </ul>
+              <div>
+                <h3 class="search-title">
+                  <a href="#" class="blue">{{course.name}}</a>
+                </h3>
+                <h3>
+                  <span class="blue bolder bigger-150">{{course.price}}&nbsp;￡</span>
+                </h3>
+                <p>{{course.summary}}</p>
+                <p>
+                  <span class="badge badge-info">{{course.id}}</span>
+                  <span class="badge badge-info">排序：{{course.sort}}</span>
+                  <span class="badge badge-info">时长：{{course.time}}</span>
+                </p>
+                <a>
+                  <div>
+                    <button v-on:click="edit(course)" type="button" class="btn btn btn-warning">&nbsp;Edit&nbsp;</button>
+                    &nbsp;
+                    <button v-on:click="del(course.id)" type="button" class="btn btn btn-danger">Delete</button>
+                  </div>
+                </a>
+              </div>
 
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
       </div>
+
+
+      <!-- /.card-header -->
+<!--      <div class="card-body table-responsive p-0">-->
+<!--        <table class="table table-hover text-nowrap">-->
+<!--          <thead>-->
+<!--          <tr>-->
+<!--                <th>id</th>-->
+<!--                <th>名称</th>-->
+<!--                <th>概述</th>-->
+<!--                <th>时长</th>-->
+<!--                <th>价格（元）</th>-->
+<!--                <th>封面</th>-->
+<!--                <th>级别</th>-->
+<!--                <th>收费</th>-->
+<!--                <th>状态</th>-->
+<!--                <th>报名数</th>-->
+<!--                <th>顺序</th>-->
+<!--            <th>Operation</th>-->
+<!--          </tr>-->
+<!--          </thead>-->
+
+<!--          <tbody>-->
+<!--          <tr v-for="course in courses">-->
+<!--                  <td>{{course.id}}</td>-->
+<!--                  <td>{{course.name}}</td>-->
+<!--                  <td>{{course.summary}}</td>-->
+<!--                  <td>{{course.time}}</td>-->
+<!--                  <td>{{course.price}}</td>-->
+<!--                  <td>{{course.image}}</td>-->
+<!--                  <td>{{COURSE_LEVEL | optionKV(course.level)}}</td>-->
+<!--                  <td>{{COURSE_CHARGE | optionKV(course.charge)}}</td>-->
+<!--                  <td>{{COURSE_STATUS | optionKV(course.status)}}</td>-->
+<!--                  <td>{{course.enroll}}</td>-->
+<!--                  <td>{{course.sort}}</td>-->
+<!--          <td>-->
+<!--            <div>-->
+<!--              <button v-on:click="edit(course)" type="button" class="btn btn btn-warning">&nbsp;Edit&nbsp;</button>-->
+<!--              &nbsp;-->
+<!--              <button v-on:click="del(course.id)" type="button" class="btn btn btn-danger">Delete</button>-->
+<!--            </div>-->
+<!--          </td>-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--        </table>-->
+
+<!--      </div>-->
       <!-- /.card-body -->
     </div>
     <!-- /.card -->
