@@ -1,9 +1,8 @@
 package com.online_course.business.controller.admin;
 
-import com.github.pagehelper.Page;
-import com.online_course.server.domain.Chapter;
+
 import com.online_course.server.dto.ChapterDto;
-import com.online_course.server.dto.PageDto;
+import com.online_course.server.dto.ChapterPageDto;
 import com.online_course.server.dto.ResponseDto;
 import com.online_course.server.service.ChapterService;
 import com.online_course.server.util.ValidatorUtil;
@@ -12,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author wenhaoli
@@ -33,10 +31,11 @@ public class ChapterController {
      * 列表查询
      */
     @PostMapping("/list")
-    public ResponseDto list(@RequestBody PageDto pageDto) {
+    public ResponseDto list(@RequestBody ChapterPageDto chapterPageDto) {
         ResponseDto responseDto = new ResponseDto();
-        chapterService.list(pageDto);
-        responseDto.setContent(pageDto);
+        ValidatorUtil.require(chapterPageDto.getCourseId(), "CourseID");
+        chapterService.list(chapterPageDto);
+        responseDto.setContent(chapterPageDto);
         return responseDto;
     }
     /**
