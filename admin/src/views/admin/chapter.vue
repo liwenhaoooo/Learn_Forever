@@ -1,29 +1,24 @@
 <template>
   <div>
     <div class="card">
-
       <div class="card-header">
+        <h3>
+          {{course.name}}
+        </h3>
      <tr>
+       <td>
+         <router-link to="/business/course" type="button" class="btn btn-block bg-gradient-info"><i class="fa-solid fa-arrow-left-long"></i></router-link>&emsp;
+       </td>
+       &nbsp;
         <td>
-       <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-info">&nbsp;&nbsp;Add&nbsp;&nbsp;</button>&emsp;
+       <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-info"><i class="fa-solid fa-plus"></i></button>&emsp;
      </td>
        &nbsp;
         <td>
-        <button v-on:click="list(1)" type="button" class="btn btn-block bg-gradient-success">Refresh</button>
+        <button v-on:click="list(1)" type="button" class="btn btn-block bg-gradient-success"><i class="fa-solid fa-arrow-rotate-left"></i></button>
      </td>
      </tr>
 
-<!--        <div class="card-tools">-->
-<!--          <div class="input-group input-group-sm" style="width: 150px;">-->
-<!--            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">-->
-
-<!--            <div class="input-group-append">-->
-<!--              <button type="submit" class="btn btn-default">-->
-<!--                <i class="fas fa-search"></i>-->
-<!--              </button>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
       </div>
       <!-- /.card-header -->
       <div class="card-body table-responsive p-0">
@@ -104,12 +99,18 @@ export default {
   data: function (){
     return {
       chapter: {},
-      chapters :[]
+      chapters :[],
+      course: {},
     }
   },
   mounted: function() {
     let _this = this;
     _this.$refs.pagination.size = 10;
+    let course = SessionStorage.get("course") || {};
+    if (Tool.isEmpty(course)) {
+      _this.$router.push("/welcome");
+    }
+    _this.course = course;
     _this.list(1);
 
   },

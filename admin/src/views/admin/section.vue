@@ -4,11 +4,11 @@
       <div class="card-header">
         <tr>
           <td>
-            <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-info">&nbsp;&nbsp;Add&nbsp;&nbsp;</button>&emsp;
+            <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-info"><i class="fa-solid fa-plus"></i></button>&emsp;
           </td>
           &nbsp;
           <td>
-            <button v-on:click="list(1)" type="button" class="btn btn-block bg-gradient-success">Refresh</button>
+            <button v-on:click="list(1)" type="button" class="btn btn-block bg-gradient-success"><i class="fa-solid fa-arrow-rotate-left"></i></button>
           </td>
         </tr>
       </div>

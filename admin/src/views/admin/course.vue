@@ -4,11 +4,11 @@
       <div class="card-header">
         <tr>
           <td>
-            <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-info">&nbsp;&nbsp;Add&nbsp;&nbsp;</button>&emsp;
+            <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-info"><i class="fa-solid fa-plus"></i></button>&emsp;
           </td>
           &nbsp;
           <td>
-            <button v-on:click="list(1)" type="button" class="btn btn-block bg-gradient-success">Refresh</button>
+            <button v-on:click="list(1)" type="button" class="btn btn-block bg-gradient-success"><i class="fa-solid fa-arrow-rotate-left"></i></button>
           </td>
         </tr>
       </div>
@@ -33,7 +33,7 @@
                   <a href="#" class="blue">{{course.name}}</a>
                 </h3>
                 <h3>
-                  <span class="blue bolder bigger-150">{{course.price}}&nbsp;￡</span>
+                  <span class="blue bolder bigger-150">{{course.price}}￡</span>
                 </h3>
                 <p>{{course.summary}}</p>
                 <p>
@@ -43,9 +43,11 @@
                 </p>
                 <a>
                   <div>
-                    <button v-on:click="edit(course)" type="button" class="btn btn btn-warning">&nbsp;Edit&nbsp;</button>
+                    <button v-on:click="toChapter(course)" type="button" class="btn btn-outline-primary">Chapter</button>
                     &nbsp;
-                    <button v-on:click="del(course.id)" type="button" class="btn btn btn-danger">Delete</button>
+                    <button v-on:click="edit(course)" type="button" class="btn btn-outline-warning">&nbsp;Edit&nbsp;</button>
+                    &nbsp;
+                    <button v-on:click="del(course.id)" type="button" class="btn btn-outline-danger">Delete</button>
                   </div>
                 </a>
               </div>
@@ -57,56 +59,9 @@
         </div>
       </div>
 
-
-      <!-- /.card-header -->
-<!--      <div class="card-body table-responsive p-0">-->
-<!--        <table class="table table-hover text-nowrap">-->
-<!--          <thead>-->
-<!--          <tr>-->
-<!--                <th>id</th>-->
-<!--                <th>名称</th>-->
-<!--                <th>概述</th>-->
-<!--                <th>时长</th>-->
-<!--                <th>价格（元）</th>-->
-<!--                <th>封面</th>-->
-<!--                <th>级别</th>-->
-<!--                <th>收费</th>-->
-<!--                <th>状态</th>-->
-<!--                <th>报名数</th>-->
-<!--                <th>顺序</th>-->
-<!--            <th>Operation</th>-->
-<!--          </tr>-->
-<!--          </thead>-->
-
-<!--          <tbody>-->
-<!--          <tr v-for="course in courses">-->
-<!--                  <td>{{course.id}}</td>-->
-<!--                  <td>{{course.name}}</td>-->
-<!--                  <td>{{course.summary}}</td>-->
-<!--                  <td>{{course.time}}</td>-->
-<!--                  <td>{{course.price}}</td>-->
-<!--                  <td>{{course.image}}</td>-->
-<!--                  <td>{{COURSE_LEVEL | optionKV(course.level)}}</td>-->
-<!--                  <td>{{COURSE_CHARGE | optionKV(course.charge)}}</td>-->
-<!--                  <td>{{COURSE_STATUS | optionKV(course.status)}}</td>-->
-<!--                  <td>{{course.enroll}}</td>-->
-<!--                  <td>{{course.sort}}</td>-->
-<!--          <td>-->
-<!--            <div>-->
-<!--              <button v-on:click="edit(course)" type="button" class="btn btn btn-warning">&nbsp;Edit&nbsp;</button>-->
-<!--              &nbsp;-->
-<!--              <button v-on:click="del(course.id)" type="button" class="btn btn btn-danger">Delete</button>-->
-<!--            </div>-->
-<!--          </td>-->
-<!--          </tr>-->
-<!--          </tbody>-->
-<!--        </table>-->
-
-<!--      </div>-->
-      <!-- /.card-body -->
     </div>
     <!-- /.card -->
-    <pagination ref="pagination" v-bind:list="list" v-bind:itemCount="10"></pagination>
+    <pagination ref="pagination" v-bind:list="list" v-bind:itemCount="6"></pagination>
 
     <div id="form-modal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
@@ -186,6 +141,7 @@
             </form>
           </div>
           <div class="modal-footer">
+
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button v-on:click="save()" type="button" class="btn btn-primary">Save</button>
           </div>
@@ -210,7 +166,7 @@ export default {
   },
   mounted: function() {
     let _this = this;
-    _this.$refs.pagination.size = 10;
+    _this.$refs.pagination.size = 6;
     _this.list(1);
 
   },
@@ -292,8 +248,20 @@ export default {
           }
         })
       });
-
-    }
+    },
+    /**
+     * 点击【大章】
+     */
+    toChapter(course) {
+      let _this = this;
+      SessionStorage.set("course", course);
+      _this.$router.push("/business/chapter");
+  }
   }
 }
 </script>
+<style scoped>
+.caption h3 {
+  font-size: 20px;
+}
+</style>
