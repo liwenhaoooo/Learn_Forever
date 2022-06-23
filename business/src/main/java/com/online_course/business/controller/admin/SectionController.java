@@ -5,6 +5,7 @@ import com.online_course.server.domain.Section;
 import com.online_course.server.dto.SectionDto;
 import com.online_course.server.dto.PageDto;
 import com.online_course.server.dto.ResponseDto;
+import com.online_course.server.dto.SectionPageDto;
 import com.online_course.server.service.SectionService;
 import com.online_course.server.util.ValidatorUtil;
 import org.slf4j.Logger;
@@ -32,10 +33,12 @@ public class SectionController {
      * 列表查询
      */
     @PostMapping("/list")
-    public ResponseDto list(@RequestBody PageDto pageDto) {
+    public ResponseDto list(@RequestBody SectionPageDto sectionPageDto) {
         ResponseDto responseDto = new ResponseDto();
-        sectionService.list(pageDto);
-        responseDto.setContent(pageDto);
+        ValidatorUtil.require(sectionPageDto.getCourseId(), "CourseID");
+        ValidatorUtil.require(sectionPageDto.getChapterId(), "ChapterID");
+        sectionService.list(sectionPageDto);
+        responseDto.setContent(sectionPageDto);
         return responseDto;
     }
     /**
@@ -45,9 +48,9 @@ public class SectionController {
     public ResponseDto save(@RequestBody SectionDto sectionDto) {
 
         // 保存校验
-                ValidatorUtil.require(sectionDto.getTitle(), "标题");
-                ValidatorUtil.length(sectionDto.getTitle(), "标题", 1, 50);
-                ValidatorUtil.length(sectionDto.getVideo(), "视频", 1, 200);
+        ValidatorUtil.require(sectionDto.getTitle(), "标题");
+        ValidatorUtil.length(sectionDto.getTitle(), "标题", 1, 50);
+        ValidatorUtil.length(sectionDto.getVideo(), "视频", 1, 200);
 
 
         ResponseDto responseDto = new ResponseDto();

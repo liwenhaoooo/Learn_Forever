@@ -43,11 +43,11 @@
                 </p>
                 <a>
                   <div>
-                    <button v-on:click="toChapter(course)" type="button" class="btn btn-outline-primary">Chapter</button>
+                    <button v-on:click="toChapter(course)" type="button" class="btn btn btn-info">Chapter</button>
                     &nbsp;
-                    <button v-on:click="edit(course)" type="button" class="btn btn-outline-warning">&nbsp;Edit&nbsp;</button>
+                    <button v-on:click="edit(course)" type="button" class="btn btn btn-warning">&nbsp;Edit&nbsp;</button>
                     &nbsp;
-                    <button v-on:click="del(course.id)" type="button" class="btn btn-outline-danger">Delete</button>
+                    <button v-on:click="del(course.id)" type="button" class="btn btn btn-danger">Delete</button>
                   </div>
                 </a>
               </div>

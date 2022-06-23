@@ -1,10 +1,12 @@
 <template>
   <div>
+    <h4 class="lighter">
+      <i class="ace-icon fa fa-hand-o-right icon-animated-hand-pointer blue"></i>
+      <router-link to="/business/course" class="pink"> {{course.name}} </router-link>
+    </h4>
+    <hr>
     <div class="card">
       <div class="card-header">
-        <h3>
-          {{course.name}}
-        </h3>
      <tr>
        <td>
          <router-link to="/business/course" type="button" class="btn btn-block bg-gradient-info"><i class="fa-solid fa-arrow-left-long"></i></router-link>&emsp;
@@ -38,9 +40,11 @@
             <td>{{ chapter.courseId }}</td>
             <td>
               <div>
-                <button v-on:click="edit(chapter)" type="button" class="btn btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button v-on:click="toSection(chapter)" type="button" class="btn btn btn-info">Section</button>
                 &nbsp;
-                <button v-on:click="del(chapter.id)" type="button" class="btn btn btn-danger"><i class="fa-regular fa-trash-can"></i></button>
+                <button v-on:click="edit(chapter)" type="button" class="btn btn btn-warning">&nbsp;Edit &nbsp;</button>
+                &nbsp;
+                <button v-on:click="del(chapter.id)" type="button" class="btn btn btn-danger">Delete</button>
               </div>
            </td>
           </tr>
@@ -190,7 +194,14 @@ export default {
           }
         })
       });
-
+    },
+    /**
+     * 点击【小节】
+     */
+    toSection(chapter) {
+      let _this = this;
+      SessionStorage.set("chapter", chapter);
+      _this.$router.push("/business/section");
     }
   }
 }
