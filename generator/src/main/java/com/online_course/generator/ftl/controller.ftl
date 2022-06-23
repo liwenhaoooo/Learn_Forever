@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * @author wenhaoli
- * @date 2022/06/12 16:46
+ * @date 2022/06/20 16:46
  */
 @RequestMapping("/admin/${domain}")
 @RestController

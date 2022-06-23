@@ -24,9 +24,9 @@
               </div>
               &nbsp;
               <ul class="text-right">
-                  <span class="bg-purple color-palette">{{COURSE_LEVEL | optionKV(course.level)}}</span>
-           &nbsp; <span class="bg-purple color-palette">{{COURSE_CHARGE | optionKV(course.charge)}}</span>
-           &nbsp;<span class="bg-purple color-palette">{{COURSE_STATUS | optionKV(course.status)}}</span>
+                <span class="bg-gray-dark color-palette">{{COURSE_LEVEL | optionKV(course.level)}}</span>
+         &nbsp;<span class="bg-gray-dark color-palette">{{COURSE_CHARGE | optionKV(course.charge)}}</span>
+           &nbsp;<span class="bg-gray-dark color-palette">{{COURSE_STATUS | optionKV(course.status)}}</span>
               </ul>
               <div>
                 <h3 class="search-title">
@@ -37,9 +37,9 @@
                 </h3>
                 <p>{{course.summary}}</p>
                 <p>
-                  <span class="badge badge-info">{{course.id}}</span>
-                  <span class="badge badge-info">排序：{{course.sort}}</span>
-                  <span class="badge badge-info">时长：{{course.time | formatSecond}}</span>
+                  <span class="badge bg-olive">{{course.id}}</span>
+                  <span class="badge bg-olive">Sort:&nbsp;{{course.sort}}</span>
+                  <span class="badge bg-olive">Duration:&nbsp;{{course.time | formatSecond}}</span>
                 </p>
                 <a>
                   <div>

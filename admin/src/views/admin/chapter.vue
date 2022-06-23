@@ -57,16 +57,12 @@
     <!-- /.card -->
     <pagination ref="pagination" v-bind:list="list" v-bind:itemCount="10"></pagination>
 
-
-
-
     <div id="form-modal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Add Chapter</h4>
+            <h4 class="modal-title">Chapter</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
           </div>
           <div class="modal-body">
             <form class="form-horizontal">
