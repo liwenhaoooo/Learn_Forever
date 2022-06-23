@@ -38,9 +38,9 @@
             <td>{{ chapter.courseId }}</td>
             <td>
               <div>
-                <button v-on:click="edit(chapter)" type="button" class="btn btn btn-warning">&nbsp;Edit&nbsp;</button>
+                <button v-on:click="edit(chapter)" type="button" class="btn btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
                 &nbsp;
-                <button v-on:click="del(chapter.id)" type="button" class="btn btn btn-danger">Delete</button>
+                <button v-on:click="del(chapter.id)" type="button" class="btn btn btn-danger"><i class="fa-regular fa-trash-can"></i></button>
               </div>
            </td>
           </tr>
