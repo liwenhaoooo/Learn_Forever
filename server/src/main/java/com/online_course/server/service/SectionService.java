@@ -10,6 +10,7 @@ import com.online_course.server.domain.SectionExample;
 import com.online_course.server.dto.SectionDto;
 import com.online_course.server.mapper.SectionMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
@@ -52,6 +53,7 @@ public class SectionService {
     /**
      * 保存，id有值时更新，无值时新增
      */
+    @Transactional
     public void save(SectionDto sectionDto) {
         Section section = CopyUtil.copy(sectionDto, Section.class);
         if (StringUtils.isEmpty(sectionDto.getId())) {

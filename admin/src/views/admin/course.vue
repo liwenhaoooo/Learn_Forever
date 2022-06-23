@@ -39,7 +39,7 @@
                 <p>
                   <span class="badge badge-info">{{course.id}}</span>
                   <span class="badge badge-info">排序：{{course.sort}}</span>
-                  <span class="badge badge-info">时长：{{course.time}}</span>
+                  <span class="badge badge-info">时长：{{course.time | formatSecond}}</span>
                 </p>
                 <a>
                   <div>

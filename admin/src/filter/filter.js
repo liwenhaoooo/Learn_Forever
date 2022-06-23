@@ -65,6 +65,7 @@ let formatSecond = (value) => {
   return result;
 };
 
+
 /**
  * 格式化指定长度，前面补0
  */
