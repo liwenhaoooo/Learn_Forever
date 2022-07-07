@@ -6,7 +6,7 @@
           <div class="card-header">
             <tr>
               <td>
-                <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-info"><i class="fa-solid fa-plus"></i></button>&emsp;
+                <button v-on:click="add1()" type="button" class="btn btn-block bg-gradient-info"><i class="fa-solid fa-plus">新增一级</i></button>&emsp;
               </td>
               &nbsp;
               <td>
@@ -51,7 +51,7 @@
           <div class="card-header">
             <tr>
               <td>
-                <button v-on:click="add()" type="button" class="btn btn-block bg-gradient-info"><i class="fa-solid fa-plus"></i></button>&emsp;
+                <button v-on:click="add2()" type="button" class="btn btn-block bg-gradient-info"><i class="fa-solid fa-plus">新增二级</i></button>&emsp;
               </td>
               &nbsp;
               <td>
@@ -98,15 +98,15 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Add 分类</h4>
+            <h4 class="modal-title">Form</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
           <div class="modal-body">
             <form class="form-horizontal">
                     <div class="form-group">
-                      <label class="col-sm-2 control-label">父id</label>
+                      <label class="col-sm-2 control-label">父分类</label>
                       <div class="col-sm-10">
-                        <input v-model="category.parent" class="form-control">
+                        <p class="form-control-static">{{active.name || "无"}}</p>
                       </div>
                     </div>
                     <div class="form-group">
@@ -149,14 +149,33 @@ export default {
     _this.all();
 
   },
-  methods:{
+  methods: {
     /**
-     * 点击【新增】
+     * 点击【新增一级】
      */
-    add() {
+    add1() {
       let _this = this;
-      _this.category = {};
+      _this.active = {};
+      _this.level2 = [];
+      _this.category = {
+        parent: "00000000"
+      };
       $("#form-modal").modal("show");
+    },
+
+    /**
+     * 点击【新增二级】
+     */
+    add2() {
+      let _this = this;
+      if (Tool.isEmpty(_this.active)) {
+        Toast.warning("请先点击一级分类");
+        return;
+      }
+      _this.category = {
+        parent: _this.active.id
+      };
+      $(".modal").modal("show");
     },
     /**
      * 点击【编辑】
