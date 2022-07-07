@@ -217,6 +217,12 @@
                         <p>Course</p>
                       </router-link>
                     </li>
+                    <li class="nav-item" id="business-teacher-sidebar">
+                      <router-link to="/business/teacher" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Lecturers</p>
+                      </router-link>
+                    </li>
 <!--                    <li class="nav-item" id="business-chapter-sidebar">-->
 <!--                      <router-link to="/business/chapter" class="nav-link">-->
 <!--                        <i class="far fa-circle nav-icon"></i>-->
