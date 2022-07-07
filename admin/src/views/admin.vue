@@ -205,6 +205,12 @@
                     </p>
                   </a>
                   <ul class="nav nav-treeview">
+                    <li class="nav-item" id="business-category-sidebar">
+                      <router-link to="/business/category" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Category</p>
+                      </router-link>
+                    </li>
                     <li class="nav-item" id="business-course-sidebar">
                       <router-link to="/business/course" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
