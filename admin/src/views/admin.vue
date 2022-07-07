@@ -217,18 +217,18 @@
                         <p>Course</p>
                       </router-link>
                     </li>
-                    <li class="nav-item" id="business-chapter-sidebar">
-                      <router-link to="/business/chapter" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Chapter</p>
-                      </router-link>
-                    </li>
-                    <li class="nav-item" id="business-section-sidebar">
-                      <router-link to="/business/section" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Section</p>
-                      </router-link>
-                    </li>
+<!--                    <li class="nav-item" id="business-chapter-sidebar">-->
+<!--                      <router-link to="/business/chapter" class="nav-link">-->
+<!--                        <i class="far fa-circle nav-icon"></i>-->
+<!--                        <p>Chapter</p>-->
+<!--                      </router-link>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item" id="business-section-sidebar">-->
+<!--                      <router-link to="/business/section" class="nav-link">-->
+<!--                        <i class="far fa-circle nav-icon"></i>-->
+<!--                        <p>Section</p>-->
+<!--                      </router-link>-->
+<!--                    </li>-->
 
                   </ul>
                 </li>
