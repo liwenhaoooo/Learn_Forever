@@ -153,7 +153,7 @@ export default {
     /**
      * 点击【保存】
      */
-    save(page) {
+    save() {
       let _this = this;
 
       // 保存校验
