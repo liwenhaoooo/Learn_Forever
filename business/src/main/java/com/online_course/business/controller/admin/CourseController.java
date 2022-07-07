@@ -2,10 +2,7 @@ package com.online_course.business.controller.admin;
 
 import com.github.pagehelper.Page;
 import com.online_course.server.domain.Course;
-import com.online_course.server.dto.CourseCategoryDto;
-import com.online_course.server.dto.CourseDto;
-import com.online_course.server.dto.PageDto;
-import com.online_course.server.dto.ResponseDto;
+import com.online_course.server.dto.*;
 import com.online_course.server.service.CourseCategoryService;
 import com.online_course.server.service.CourseService;
 import com.online_course.server.util.ValidatorUtil;
@@ -79,6 +76,21 @@ public class CourseController {
         ResponseDto responseDto = new ResponseDto();
         List<CourseCategoryDto> dtoList = courseCategoryService.listByCourse(courseId);
         responseDto.setContent(dtoList);
+        return responseDto;
+    }
+
+    @GetMapping("/find-content/{id}")
+    public ResponseDto findContent(@PathVariable String id) {
+        ResponseDto responseDto = new ResponseDto();
+        CourseContentDto contentDto = courseService.findContent(id);
+        responseDto.setContent(contentDto);
+        return responseDto;
+    }
+
+    @PostMapping("/save-content")
+    public ResponseDto saveContent(@RequestBody CourseContentDto contentDto) {
+        ResponseDto responseDto = new ResponseDto();
+        courseService.saveContent(contentDto);
         return responseDto;
     }
 }

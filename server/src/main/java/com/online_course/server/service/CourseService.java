@@ -2,6 +2,9 @@ package com.online_course.server.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.online_course.server.domain.CourseContent;
+import com.online_course.server.dto.CourseContentDto;
+import com.online_course.server.mapper.CourseContentMapper;
 import com.online_course.server.mapper.my.MyCourseMapper;
 import com.online_course.server.util.CopyUtil;
 import com.online_course.server.util.UuidUtil;
@@ -38,6 +41,8 @@ public class CourseService {
     @Resource
     private CourseCategoryService courseCategoryService;
 
+    @Resource
+    private CourseContentMapper courseContentMapper;
 
     /**
      * 列表查询
@@ -72,8 +77,8 @@ public class CourseService {
      */
     private void insert(Course course) {
         Date now = new Date();
-                course.setCreatedAt(now);
-                course.setUpdatedAt(now);
+        course.setCreatedAt(now);
+        course.setUpdatedAt(now);
         course.setId(UuidUtil.getShortUuid());
         courseMapper.insert(course);
     }
@@ -81,7 +86,7 @@ public class CourseService {
      * 更新
      */
     private void update(Course course) {
-                course.setUpdatedAt(new Date());
+        course.setUpdatedAt(new Date());
         courseMapper.updateByPrimaryKey(course);
     }
     /**
@@ -99,5 +104,28 @@ public class CourseService {
     public void updateTime(String courseId) {
         LOG.info("更新课程时长：{}", courseId);
         myCourseMapper.updateTime(courseId);
+    }
+
+    /**
+     * 查找课程内容
+     */
+    public CourseContentDto findContent(String id) {
+        CourseContent content = courseContentMapper.selectByPrimaryKey(id);
+        if (content == null) {
+            return null;
+        }
+        return CopyUtil.copy(content, CourseContentDto.class);
+    }
+
+    /**
+     * 保存课程内容，包含新增和修改
+     */
+    public int saveContent(CourseContentDto contentDto) {
+        CourseContent content = CopyUtil.copy(contentDto, CourseContent.class);
+        int i = courseContentMapper.updateByPrimaryKeyWithBLOBs(content);
+        if (i == 0) {
+            i = courseContentMapper.insert(content);
+        }
+        return i;
     }
 }
