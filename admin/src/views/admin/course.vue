@@ -67,12 +67,17 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Add 课程</h4>
+            <h4 class="modal-title">Form</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
           <div class="modal-body">
             <form class="form-horizontal">
                     <div class="form-group">
+                      <label class="col-sm-2 control-label">分类</label>
+                      <div class="col-sm-10">
+                        <ul id="tree" class="ztree"></ul>
+                      </div>
+                    </div><div class="form-group">
                       <label class="col-sm-2 control-label">名称</label>
                       <div class="col-sm-10">
                         <input v-model="course.name" class="form-control">
@@ -155,7 +160,7 @@ import Pagination from "../../components/pagination";
 export default {
   components: {Pagination},
   name: "business-course",
-  data: function (){
+  data: function () {
     return {
       course: {},
       courses: [],
@@ -164,13 +169,14 @@ export default {
       COURSE_STATUS: COURSE_STATUS,
     }
   },
-  mounted: function() {
+  mounted: function () {
     let _this = this;
     _this.$refs.pagination.size = 6;
+    _this.initTree();
     _this.list(1);
 
   },
-  methods:{
+  methods: {
     /**
      * 点击【新增】
      */
@@ -193,10 +199,10 @@ export default {
     list(page) {
       let _this = this;
       Loading.show();
-      _this.$ajax.post(process.env.VUE_APP_SERVER + '/business/admin/course/list',{
-        page:page,
-        size:_this.$refs.pagination.size,
-      }).then((response)=>{
+      _this.$ajax.post(process.env.VUE_APP_SERVER + '/business/admin/course/list', {
+        page: page,
+        size: _this.$refs.pagination.size,
+      }).then((response) => {
         Loading.hide();
         let resp = response.data;
         _this.courses = resp.content.list;
@@ -211,16 +217,16 @@ export default {
 
       // 保存校验
       if (1 != 1
-              || !Validator.require(_this.course.name, "名称")
-              || !Validator.length(_this.course.name, "名称", 1,50)
-              || !Validator.length(_this.course.summary, "概述", 1,2000)
-              || !Validator.length(_this.course.image, "封面", 1,100)
+          || !Validator.require(_this.course.name, "名称")
+          || !Validator.length(_this.course.name, "名称", 1, 50)
+          || !Validator.length(_this.course.summary, "概述", 1, 2000)
+          || !Validator.length(_this.course.image, "封面", 1, 100)
       ) {
         return;
       }
 
       Loading.show();
-      _this.$ajax.post(process.env.VUE_APP_SERVER + '/business/admin/course/save', _this.course).then((response)=>{
+      _this.$ajax.post(process.env.VUE_APP_SERVER + '/business/admin/course/save', _this.course).then((response) => {
         Loading.hide();
         let resp = response.data;
         if (resp.success) {
@@ -239,7 +245,7 @@ export default {
       let _this = this;
       Confirm.show("After deletion, it cannot be recovered. Confirm deletion?", function () {
         Loading.show();
-        _this.$ajax.delete(process.env.VUE_APP_SERVER + '/business/admin/course/delete/' + id).then((response)=>{
+        _this.$ajax.delete(process.env.VUE_APP_SERVER + '/business/admin/course/delete/' + id).then((response) => {
           Loading.hide();
           let resp = response.data;
           if (resp.success) {
@@ -256,7 +262,38 @@ export default {
       let _this = this;
       SessionStorage.set("course", course);
       _this.$router.push("/business/chapter");
-  }
+    },
+
+    initTree() {
+      let setting = {
+        check: {
+          enable: true
+        },
+        data: {
+          simpleData: {
+            enable: true
+          }
+        }
+      };
+
+      let zNodes = [
+        {id: 1, pId: 0, name: "随意勾选 1", open: true},
+        {id: 11, pId: 1, name: "随意勾选 1-1", open: true},
+        {id: 111, pId: 11, name: "随意勾选 1-1-1"},
+        {id: 112, pId: 11, name: "随意勾选 1-1-2"},
+        {id: 12, pId: 1, name: "随意勾选 1-2", open: true},
+        {id: 121, pId: 12, name: "随意勾选 1-2-1"},
+        {id: 122, pId: 12, name: "随意勾选 1-2-2"},
+        {id: 2, pId: 0, name: "随意勾选 2", checked: true, open: true},
+        {id: 21, pId: 2, name: "随意勾选 2-1"},
+        {id: 22, pId: 2, name: "随意勾选 2-2", open: true},
+        {id: 221, pId: 22, name: "随意勾选 2-2-1", checked: true},
+        {id: 222, pId: 22, name: "随意勾选 2-2-2"},
+        {id: 23, pId: 2, name: "随意勾选 2-3"}
+      ];
+
+      $.fn.zTree.init($("#tree"), setting, zNodes);
+    }
   }
 }
 </script>
